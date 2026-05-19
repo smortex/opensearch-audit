@@ -116,7 +116,7 @@ if options[:max_shard_size] < options[:min_shard_size]
   exit 1
 end
 
-index_pattern = ARGV.first || "_all"
+index_pattern = ARGV.first || OpenSearch::Audit::IndexList::DEFAULT_INDEX_PATTERN
 
 index_list = OpenSearch::Audit::IndexList.new(client: cli.client, options: options, index_pattern: index_pattern)
 

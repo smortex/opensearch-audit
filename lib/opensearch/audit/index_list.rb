@@ -9,6 +9,8 @@ module OpenSearch
       include OpenSearch::Audit::IndexList::Math
       include OpenSearch::Audit::IndexList::Periodicity
 
+      DEFAULT_INDEX_PATTERN = "_all"
+
       attr_reader :client, :longest_index_name, :index_pattern, :options
 
       def initialize(client:, options:, indices: [], index_pattern: nil)
