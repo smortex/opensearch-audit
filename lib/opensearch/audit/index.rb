@@ -33,7 +33,7 @@ module OpenSearch
       end
 
       def self.group_name(name)
-        name.sub(/-(?<year>\d{4})(?:(?<date_separator>[.-])(?<month>\d{2})(?:\k<date_separator>(?<day>\d{2})(?:\k<date_separator>(?<hour>\d{2}))?)?)?(?<stream_id>-\d{5,})?\Z/) do |match|
+        name.sub(/-(?<year>\d{4})(?:(?<date_separator>[.-])(?<month>\d{2})(?:\k<date_separator>(?<day>\d{2})(?:\k<date_separator>(?<hour>\d{2}))?)?)?(?<stream_id>-\d{5,})?\Z/) do |_match|
           res = "-YYYY"
           res << "#{Regexp.last_match(:date_separator)}MM" if Regexp.last_match(:month)
           res << "#{Regexp.last_match(:date_separator)}dd" if Regexp.last_match(:day)

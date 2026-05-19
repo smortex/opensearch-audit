@@ -20,7 +20,7 @@ OpenSearch::Audit.add_check(:unexpected_type) do
       expected_types = case key.last
       when "address" then ["ip", "keyword", "wildcard"]
       when "ip", /_ip$/ then ["ip"]
-      when "port", /_port$/ then ["integer"]
+      when "port", /_port$/ then ["long"]
       when "uid", "gid" then ["integer"]
       end
 
